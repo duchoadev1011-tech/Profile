@@ -45,9 +45,54 @@
         .zalo { background: #0068ff; }
         .telegram { background: #229ED9; }
         footer { margin-top: 20px; font-size: 11px; color: #555; }
+
+        /* ====== NÚT NHẠC NỔI ====== */
+        .music-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0068ff, #7c3aed);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 22px;
+            box-shadow: 0 5px 20px rgba(0, 104, 255, 0.6);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        .music-btn:hover { transform: scale(1.1); }
+        .music-btn.playing { animation: spin 3s linear infinite; }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 5px 20px rgba(0, 104, 255, 0.6); }
+            50% { box-shadow: 0 5px 30px rgba(124, 58, 237, 0.8); }
+            100% { box-shadow: 0 5px 20px rgba(0, 104, 255, 0.6); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Audio Player ẩn -->
+    <audio id="bgMusic" loop>
+        <!-- THAY LINK NHẠC CỦA BẠN VÀO ĐÂY -->
+        <source src="https://files.catbox.moe/ugipai.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Nút nhạc nổi -->
+    <button class="music-btn" id="musicBtn" title="Bật/Tắt nhạc">
+        <i class="fas fa-music" id="musicIcon"></i>
+    </button>
 
     <div class="wrapper">
         <div class="cover" id="cover"></div>
@@ -118,7 +163,7 @@
     </div>
 
     <script>
-        // Đọc dữ liệu từ data.json và cập nhật giao diện
+        // Đọc dữ liệu từ data.json
         fetch('/data.json')
             .then(res => res.json())
             .then(data => {
@@ -144,6 +189,23 @@
         btn.onclick = () => modal.style.display = "flex";
         span.onclick = () => modal.style.display = "none";
         window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+
+        // ====== XỬ LÝ NHẠC ======
+        const music = document.getElementById("bgMusic");
+        const musicBtn = document.getElementById("musicBtn");
+        const musicIcon = document.getElementById("musicIcon");
+
+        musicBtn.onclick = function() {
+            if (music.paused) {
+                music.play();
+                musicBtn.classList.add("playing");
+                musicIcon.className = "fas fa-pause"; 
+            } else {
+                music.pause();
+                musicBtn.classList.remove("playing");
+                musicIcon.className = "fas fa-music"; 
+            }
+        };
     </script>
 </body>
-                </html>
+    </html>
