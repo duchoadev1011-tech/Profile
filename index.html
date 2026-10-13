@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cao Đức Hòa | Profile</title>
+    <!-- Thư viện icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font chữ -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            /* Nền đen chuyển sắc siêu đẹp */
+            background: radial-gradient(circle at top, #1a1a1a 0%, #000000 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        /* Khung kính mờ (Glassmorphism) */
+        .profile-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 40px 24px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Avatar phát sáng */
+        .avatar-container {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #3b82f6;
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.5), 0 0 50px rgba(88, 101, 242, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .avatar-container:hover {
+            transform: scale(1.05);
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            background: linear-gradient(to right, #ffffff, #a0a0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bio {
+            font-size: 14px;
+            color: #a0a0a0;
+            margin-bottom: 35px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Nút bấm với hiệu ứng nổi */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(255,255,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        .btn i {
+            font-size: 20px;
+        }
+
+        /* Màu sắc từng nút */
+        .facebook {
+            background: linear-gradient(135deg, #1877f2, #0d5bbd);
+            box-shadow: 0 4px 15px rgba(24, 119, 242, 0.3);
+        }
+        .facebook:hover {
+            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.6);
+        }
+
+        .discord {
+            background: linear-gradient(135deg, #5865F2, #4752C4);
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+        .discord:hover {
+            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
+        }
+
+        .zalo {
+            background: linear-gradient(135deg, #0068ff, #0047b3);
+            box-shadow: 0 4px 15px rgba(0, 104, 255, 0.3);
+        }
+        .zalo:hover {
+            box-shadow: 0 8px 25px rgba(0, 104, 255, 0.6);
+        }
+
+        footer {
+            margin-top: 35px;
+            font-size: 12px;
+            color: #444;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <div class="avatar-container">
+            <img src="https://i.imgur.com/EWFMfCV.jpeg" alt="Cao Đức Hòa" class="avatar">
+        </div>
+        
+        <h1>Cao Đức Hòa</h1>
+        <p class="bio">Người sáng tạo nội dung số</p>
+        
+        <div class="links">
+            <a href="https://www.facebook.com/wjkez" target="_blank" class="btn facebook">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            
+            <a href="https://discord.com/users/482717433388335115" target="_blank" class="btn discord">
+                <i class="fab fa-discord"></i> Discord
+            </a>
+            
+            <a href="https://zalo.me/0868712776" target="_blank" class="btn zalo">
+                <i class="fas fa-comment-dots"></i> Zalo
+            </a>
+        </div>
+
+        <footer>
+            &copy; 2026 Cao Đức Hòa
+        </footer>
+    </div>
+
+</body>
+</html>
